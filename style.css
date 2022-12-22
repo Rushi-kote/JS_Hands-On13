@@ -1,0 +1,32 @@
+#headLine{
+    text-align: center;
+}
+
+.box{
+    height: 30px;
+    width: auto;
+    background-color: aqua;
+    display: inline-block;
+}
+
+
+#flex-container{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+}
+
+.flex-item{
+    height: 50px;
+    width: 50px;
+    background-color: bisque;
+}
+
+#changedirectionbtn{
+    height: auto;
+    width: fit-content;
+}

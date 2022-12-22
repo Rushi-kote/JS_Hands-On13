@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Hands-On13</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h1 id="headLine">DOM</h1>
+    <hr>
+    <h3>Q1: Write the code to access element which is having id as "text"</h3>
+    <div id="text">Hi, I am learning DOM manipulation.</div>
+    <pre>
+Ans:
+let text= document.getElementById("text");
+console.log(text.innerText);
+    </pre>
+
+    <h3>Q2: Write the code to access element which is having tag as "h1"</h3>
+    <pre>
+Ans:
+let tag = document.getElementsByTagName("h1");
+console.log(tag[0].innerText);
+    </pre>
+
+    <h3>Q3: Write the code to access element which is having class as "box"</h3>
+    <div class="box">this is div with id "box"</div>
+    <pre>
+Ans:
+let tag = document.getElementsByTagName("h1");
+console.log(tag[0].innerText);
+    </pre>
+
+    <h1>Hello </h1>
+    <h3>Q4: Change the heading from ""Hello"" to ""Hello World"" using DOM functions"</h3>
+    <pre>
+Ans:
+let tagh1 = document.getElementsByTagName("h1");
+tagh1[1].innerHTML=`< h1>Hello World </ h1>`;
+    </pre>
+
+    <h3>Q5:Create three cards on HTML page and arrange them using flex property in row or horizontal direction <br>
+        and also create button at the bottom named "Change Flex direction". When user clicks on this button, the cards <br>
+         arrangement should be changed to vertical direction.
+    </h3>
+
+    <div id="flex-container">
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+    </div>
+    <button id="changedirectionbtn">Change flex-direction</button>
+    <pre>
+Ans:
+let btnElement =document.getElementById("changedirectionbtn");
+let bool = 1;
+btnElement.addEventListener("click",function(){
+    if(bool===1){
+        bool=0;
+        document.getElementById("flex-container").style.flexDirection = "row";
+    }else{
+        bool=1;
+        document.getElementById("flex-container").style.flexDirection = "column";
+    }
+});
+
+    </pre>
+
+    <h3>Q6:What’s the difference between window vs document?</h3>
+    <p>Window object is the top most object and outermost element of the object hierarchy. whereas each HTML document that gets loaded into a 
+        window becomes a document object. The document contains the contents of the page. Using document object, JavaScript can modify, add and 
+        delete the HTML elements, attributes CSS styles in the page. The window object represents a window/tab containing a DOM document where as 
+        document object is property of window object that points to the DOM document loaded in that window.
+    </p>
+    <h3>Q7: </h3><h1 id="heading">Hello </h1><h3>Add one style attribute and give text color as red and id attribute and give the id value as ""heading"" in the above given h1 tag using DOM functions.</h3>
+<pre>
+Ans:
+document.getElementById("heading").style.color="red";
+</pre>
+    <h3>Q8: Create an HTML page having content as Hello world and a button named Replace Text. When user will click on this button page content 
+        should be changed to "Welcome to Elevation academy"
+    </h3>
+    <div id="divText">Hello world</div>
+    <button id="ChangeText">Change Text</button>
+    <pre>
+Ans:       
+let btnChnageText = document.getElementById("ChangeText");
+let divText = document.getElementById("divText");
+
+btnChnageText.addEventListener("click",function(){
+    debugger;
+    divText.innerText="Welcome to Elevation academy";
+    
+});
+    </pre>
+
+    <h3>
+       Q9: Write code to implement timer clock using JS -- display HH:MM:SS -- the time should keep updating every second
+    </h3>
+    <div id="time"></div>
+    <pre>
+Ans:
+let time= document.getElementById("time");
+
+function timer(){
+    let timedate= new Date();
+    let hrs = timedate.getHours();
+    let mins = timedate.getMinutes();
+    let secs = timedate.getSeconds();
+    time.innerHTML=`${hrs} : ${mins} : ${secs}`;
+}
+
+setInterval(function(){
+    timer();
+},1000);       
+    </pre>
+
+
+    <h3>Q10: Create a select drop down for selecting Year 20-21, 21-22 etc. Print the item text selected</h3>
+
+    <label for="passoutyear">Select Passing Year: </label>
+    <select name="passingYear" id="passingYear">
+        <option value="19-20">19-20</option>
+        <option value="20-21">20-21</option>
+        <option value="21-22">21-22</option>
+        <option value="22-23">22-23</option>
+        <option value="23-24">23-24</option>
+    </select>
+    <br>
+    <button id="save" >Save</button> <br>
+    <div id="Selected_Option"></div>
+
+<pre>
+Ans:
+let btnsave = document.getElementById("save");
+let selected = document.getElementById("passingYear");
+
+btnsave.addEventListener("click",function(){
+ let selectedOption = selected.options[selected.selectedIndex].text;
+ document.getElementById("Selected_Option").innerText = `Selected option is :${selectedOption}`;
+});
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
